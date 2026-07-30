@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 438933883
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 70728581d200174469a3f27ba81a6e03, type: 3}
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819df95e1447feb5aada6236250f0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collectible
-  scoreText: {fileID: 0}
   gemSprites:
   - {fileID: 21300000, guid: 70728581d200174469a3f27ba81a6e03, type: 3}
   - {fileID: 21300000, guid: 8697644ae23eb9f4c896d143f527c343, type: 3}
