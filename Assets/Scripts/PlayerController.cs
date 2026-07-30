@@ -59,22 +59,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 
-    public void GameOver()
+    public void DisableMovement()
     {
-        if (isGameOver)
-        {
-            return;
-        }
-
         Debug.Log("Game Over!!");
-
-        isGameOver = true;
         moveAction.Disable();
         playerRigidbody.linearVelocity = Vector2.zero;
-        Time.timeScale = 0f;
     }
 }

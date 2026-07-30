@@ -30,6 +30,7 @@ public class MenuManager : MonoBehaviour
 
     public void ShowPlayScene()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Player");
     }
 }

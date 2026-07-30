@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [Header("Prefabs")]
-    [SerializeField] private GameObject ramaPrefab;
     [SerializeField] private GameObject gemaPrefab;
     [SerializeField] private GameObject trampaPrefab;
 
@@ -57,7 +56,6 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        StartSpawnLoop(ramaPrefab);
         StartSpawnLoop(gemaPrefab);
         StartSpawnLoop(trampaPrefab);
     }
