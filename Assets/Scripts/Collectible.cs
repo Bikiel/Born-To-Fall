@@ -4,11 +4,16 @@ using TMPro;
 public class Collectible : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Sprite[] gemSprites;
 
     private static int score;
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        SetRandomSprite();
+
         // Permite asignar el texto desde la jerarquía y, si se omite, busca el
         // objeto de UI existente llamado "ScoreText".
         if (scoreText == null)
@@ -26,6 +31,17 @@ public class Collectible : MonoBehaviour
         }
 
         scoreText.SetText("Score: {0}", score);
+    }
+
+    private void SetRandomSprite()
+    {
+        if (spriteRenderer == null || gemSprites == null || gemSprites.Length == 0)
+        {
+            return;
+        }
+
+        int randomIndex = Random.Range(0, gemSprites.Length);
+        spriteRenderer.sprite = gemSprites[randomIndex];
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -354,7 +354,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   moveSpeed: 7
-  acceleration: 30
+  acceleration: 25
   horizontalLimit: 8.4
 --- !u!50 &630358281
 Rigidbody2D:
@@ -639,10 +639,10 @@ MonoBehaviour:
   gemaPrefab: {fileID: 218947370543558317, guid: 61e45aa2993c8840cbdaae5c5e58e293, type: 3}
   trampaPrefab: {fileID: 8644990370974023270, guid: cf2fc31291a0474a6849413c8ac44142, type: 3}
   player: {fileID: 630358279}
-  spawnParent: {fileID: 882736371}
+  spawnParent: {fileID: 0}
   minSpawnInterval: 1
-  maxSpawnInterval: 3
-  horizontalSpawnLimit: 5
+  maxSpawnInterval: 4
+  horizontalSpawnLimit: 7.5
   minDistanceBelowPlayer: 7
   maxDistanceBelowPlayer: 13
   minVerticalSpacing: 3
