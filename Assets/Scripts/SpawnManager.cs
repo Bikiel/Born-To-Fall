@@ -8,6 +8,10 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject gemaPrefab;
     [SerializeField] private GameObject trampaPrefab;
 
+    [Header("Probabilidades Spawn (%)")]
+    [Range(0f, 100f)] public float gemaSpawnChance = 90f;
+    [Range(0f, 100f)] public float trampaSpawnChance = 10f;
+
     [Header("Referencia")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform spawnParent;
@@ -56,8 +60,8 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        StartSpawnLoop(gemaPrefab);
-        StartSpawnLoop(trampaPrefab);
+        // Iniciamos un único bucle global de generación
+        StartCoroutine(SpawnLoop());
     }
 
     private void Update()
@@ -79,18 +83,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void StartSpawnLoop(GameObject prefab)
-    {
-        if (prefab == null)
-        {
-            Debug.LogWarning("Falta asignar uno de los prefabs del SpawnManager.", this);
-            return;
-        }
-
-        StartCoroutine(SpawnLoop(prefab));
-    }
-
-    private IEnumerator SpawnLoop(GameObject prefab)
+    private IEnumerator SpawnLoop()
     {
         while (true)
         {
@@ -99,10 +92,34 @@ public class SpawnManager : MonoBehaviour
 
             if (TryGetFairSpawnPosition(out Vector3 spawnPosition))
             {
-                GameObject spawnedObject = Instantiate(prefab, spawnParent);
-                spawnedObject.transform.SetPositionAndRotation(spawnPosition, Quaternion.identity);
-                spawnedObjects.Add(spawnedObject.transform);
+                // Decidimos cuál prefab instanciar en base al porcentaje
+                GameObject prefabToSpawn = SelectPrefabByWeight();
+
+                if (prefabToSpawn != null)
+                {
+                    GameObject spawnedObject = Instantiate(prefabToSpawn, spawnParent);
+                    spawnedObject.transform.SetPositionAndRotation(spawnPosition, Quaternion.identity);
+                    spawnedObjects.Add(spawnedObject.transform);
+                }
             }
+        }
+    }
+
+    private GameObject SelectPrefabByWeight()
+    {
+        float totalWeight = gemaSpawnChance + trampaSpawnChance;
+        if (totalWeight <= 0f) return gemaPrefab; // Fallback por seguridad
+
+        float randomValue = Random.Range(0f, totalWeight);
+
+        // Si la tirada cae dentro de la probabilidad de la gema, saca la gema; de lo contrario, la trampa
+        if (randomValue < gemaSpawnChance)
+        {
+            return gemaPrefab;
+        }
+        else
+        {
+            return trampaPrefab;
         }
     }
 

@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     public GameObject gameOverCanvas;
+    public bool GameoverFreeze = false;
+    [Header("Game Over Settings")]
+    public float gameOverDelay = 3f; // Tiempo de espera configurable
 
     [Header("References")]
     [SerializeField] private PlayerController playerController;
@@ -59,12 +62,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     public void ShowPlayScene()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Player");
+        SceneManager.LoadScene("PlayerRevCami");
     }
 
     public void ShowMainMenu()
@@ -105,22 +109,56 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if (isGameOver) return;
-
         isGameOver = true;
 
-        audioSource.Stop();
+        StartCoroutine(GameOverRoutine());
+    }
 
+    private IEnumerator GameOverRoutine()
+    {
+        // 1. Desactivar controles del jugador inmediatamente pero dejar correr las físicas/partículas
         if (playerController != null)
         {
             playerController.DisableMovement();
         }
 
-        // Start game over audio sequence
-        StartCoroutine(GameOverAudioSequence());
+        // 2. Reproducir sonido de choque/impacto
+        if (sfxSource != null && obstacleHitSound != null)
+        {
+            sfxSource.PlayOneShot(obstacleHitSound);
+        }
 
-        Time.timeScale = 0f;
+        // 3. Esperar el tiempo configurado para que se vean las partículas y suene el impacto
+        yield return new WaitForSeconds(gameOverDelay);
 
-        gameOverCanvas.SetActive(true);
+        // 4. Detener música de fondo y cambiar a la música de GameOver
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+
+            if (gameOverMusic != null)
+            {
+                audioSource.clip = gameOverMusic;
+                audioSource.loop = false;
+                audioSource.volume = 0.5f;
+                audioSource.Play();
+            }
+        }
+
+        // 5. Pausar la simulación y mostrar la UI
+
+
+        //Time.timeScale = 0f;
+        //pausar la simulación del juego?
+        if(GameoverFreeze)
+        {
+            Time.timeScale = 0f;
+        }
+
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(true);
+        }
     }
 
     private IEnumerator GameOverAudioSequence()
@@ -132,6 +170,8 @@ public class GameManager : MonoBehaviour
             sfxSource.PlayOneShot(obstacleHitSound);
             crashDuration = (obstacleHitSound.length - 1f);
         }
+
+        
 
         yield return new WaitForSecondsRealtime(crashDuration);
 

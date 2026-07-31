@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,9 +7,16 @@ public class PlayerController : MonoBehaviour
 {
     public InputAction moveAction;
 
+    [Header("Components")]
+    public SpriteRenderer playerSprite; // Variable pública para el SpriteRenderer
+
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float acceleration = 25f;
     [SerializeField] private float horizontalLimit = 8.4f;
+
+    [Header("Fade Settings")]
+    [SerializeField] private float fadeDuration = 2f; // Tiempo que tarda en desaparecer del todo
 
     private Rigidbody2D playerRigidbody;
     private bool isGameOver;
@@ -16,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
+
+        if (playerSprite == null)
+        {
+            playerSprite = GetComponent<SpriteRenderer>();
+        }
     }
 
     private void OnEnable()
@@ -60,12 +73,47 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             GameManager.Instance.GameOver();
+            Destroy(collision.gameObject);
         }
     }
 
     public void DisableMovement()
     {
+        if (isGameOver) return;
+        isGameOver = true;
+
         moveAction.Disable();
-        playerRigidbody.linearVelocity = Vector2.zero;
+
+        // 1. Descongelar las restricciones del Rigidbody2D inmediatamente (reacciona al choque)
+        if (playerRigidbody != null)
+        {
+            playerRigidbody.constraints = RigidbodyConstraints2D.None;
+        }
+
+        // 2. Iniciar el desvanecimiento progresivo
+        if (playerSprite != null)
+        {
+            StartCoroutine(FadeOutRoutine());
+        }
+    }
+
+    private IEnumerator FadeOutRoutine()
+    {
+        Color initialColor = playerSprite.color;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            // Calculamos el alpha de 1 a 0 gradualmente
+            float newAlpha = Mathf.Lerp(initialColor.a, 0f, elapsedTime / fadeDuration);
+            playerSprite.color = new Color(initialColor.r, initialColor.g, initialColor.b, newAlpha);
+
+            yield return null;
+        }
+
+        // Aseguramos que quede completamente invisible
+        playerSprite.color = new Color(initialColor.r, initialColor.g, initialColor.b, 0f);
     }
 }

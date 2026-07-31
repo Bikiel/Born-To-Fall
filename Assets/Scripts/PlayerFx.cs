@@ -29,6 +29,7 @@ public class PlayerFx : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //playerRb.rotation = Quaternion.Euler(0, 0, 0);
@@ -37,8 +38,9 @@ public class PlayerFx : MonoBehaviour
             /*if (!playerAudio.isPlaying)
             {
                 //playerAudio.PlayOneShot(crashSound, 1.0f);
-            }*/
-        }
+            }
+         } */
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -54,10 +56,11 @@ public class PlayerFx : MonoBehaviour
 
 
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
 
-            playerRb.constraints = ~RigidbodyConstraints2D.FreezePositionY;
+            //playerRb.constraints = ~RigidbodyConstraints2D.FreezePositionY;
             /*if (!playerAudio.isPlaying)
             {
                 //playerAudio.PlayOneShot(crashSound, 1.0f);
