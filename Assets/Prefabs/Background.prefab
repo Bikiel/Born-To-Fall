@@ -344,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoBackground
   limiteSubidaY: 96
   limiteBajadaY: -294
-  velocidadMaxima: 20
+  velocidadMaxima: 10
   distanciaFrenado: 20
   velocidadMinima: 1.5
   velocidadActual: 0
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca06ad095cb2b04a973710ea89b25df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveUP
-  speed: 30
+  speed: 12
 --- !u!114 &3215282826657210733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepeatBackgroundJam2
   startPos: {x: 0, y: 0, z: 0}
   repeatWidth: 0
-  extravalue: -12
+  extravalue: -20
+  isCollider3D: 0
 --- !u!65 &5321416996362572131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -432,7 +433,7 @@ Transform:
   m_Children:
   - {fileID: 2984740445622578636}
   - {fileID: 5852655436180662619}
-  - {fileID: 4874304261126897493}
+  - {fileID: 9109232368774276429}
   m_Father: {fileID: 7900756253197990282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4048569934435387579
@@ -449,7 +450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoBackground
   limiteSubidaY: 96
   limiteBajadaY: -294
-  velocidadMaxima: 20
+  velocidadMaxima: 10
   distanciaFrenado: 20
   velocidadMinima: 1.5
   velocidadActual: 0
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca06ad095cb2b04a973710ea89b25df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveUP
-  speed: 30
+  speed: 12
 --- !u!114 &7447732119301351527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepeatBackgroundJam2
   startPos: {x: 0, y: 0, z: 0}
   repeatWidth: 0
-  extravalue: -12
+  extravalue: -20
+  isCollider3D: 0
 --- !u!65 &4709699181657853026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -794,97 +796,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &8002282282887926019
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4874304261126897493}
-  - component: {fileID: 8836860809287329672}
-  m_Layer: 0
-  m_Name: Moneda
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &4874304261126897493
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002282282887926019}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.24}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6817712419635839138}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8836860809287329672
-SpriteRenderer:
-  serializedVersion: 2
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002282282887926019}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ae648434718a0ad8e8f70cdd2af104be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 6.73, y: 7.69}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
 --- !u!1 &8074620472518946908
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoBackground
   limiteSubidaY: 96
   limiteBajadaY: -294
-  velocidadMaxima: 20
+  velocidadMaxima: 10
   distanciaFrenado: 20
   velocidadMinima: 1.5
   velocidadActual: 0
@@ -987,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca06ad095cb2b04a973710ea89b25df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveUP
-  speed: 30
+  speed: 12
 --- !u!114 &8662587767831845447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RepeatBackgroundJam2
   startPos: {x: 0, y: 0, z: 0}
   repeatWidth: 0
-  extravalue: -12
+  extravalue: -20
+  isCollider3D: 0
 --- !u!65 &3317087479033060508
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1225,6 +1137,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1001 &4510522634082888597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6817712419635839138}
+    m_Modifications:
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -54.7863
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 185.99329
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115320048791076889, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+      propertyPath: m_Name
+      value: Mountains
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+--- !u!4 &9109232368774276429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4680056827681525464, guid: 1f10cce9b193948668dc57d4a369a709, type: 3}
+  m_PrefabInstance: {fileID: 4510522634082888597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6067892110177026078
 PrefabInstance:
   m_ObjectHideFlags: 0

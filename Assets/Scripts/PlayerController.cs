@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
 
     public void DisableMovement()
     {
-        Debug.Log("Game Over!!");
         moveAction.Disable();
         playerRigidbody.linearVelocity = Vector2.zero;
     }
