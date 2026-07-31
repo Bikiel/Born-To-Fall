@@ -232,8 +232,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.5}
-  m_SizeDelta: {x: 800, y: 451}
+  m_AnchoredPosition: {x: -1.0001, y: 0.75}
+  m_SizeDelta: {x: 1922, y: 1081.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176784082
 MonoBehaviour:
@@ -308,8 +308,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11, y: -139.98254}
-  m_SizeDelta: {x: 228.5668, y: 49.9651}
+  m_AnchoredPosition: {x: 21.3927, y: -380.238}
+  m_SizeDelta: {x: 546.8919, y: 115.2522}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579860249
 MonoBehaviour:
@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 630358281}
   - component: {fileID: 630358282}
   - component: {fileID: 630358283}
+  - component: {fileID: 630358284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -471,7 +472,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 438933883
+  m_SortingLayerID: -169711129
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
@@ -590,7 +591,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &630358282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -629,7 +630,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.67, y: 4.85}
+    oldSize: {x: 2.45, y: 2.53}
     newSize: {x: 1.96, y: 3.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -659,6 +660,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &630358284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630358277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dfd9254a0430f409b38ea6242386ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFx
+  playerRb: {fileID: 630358281}
+  explosionParticle: {fileID: 19860484, guid: b7cc5c45c2fb1584ba2dff2fb6c42ce2, type: 3}
+  dirtParticle: {fileID: 1438565936, guid: 0023386954d19c944b8b3dabfb1b005a, type: 3}
 --- !u!1 &686565974
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,8 +710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: -77}
-  m_SizeDelta: {x: 230.4427, y: 91.0704}
+  m_AnchoredPosition: {x: 19, y: -234.95905}
+  m_SizeDelta: {x: 551.3804, y: 210.0678}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686565976
 MonoBehaviour:
@@ -868,37 +884,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 250927054649853134, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: speed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1313536519885581179, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: speed
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 2412885407579072676, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: velocidadMaxima
-      value: 10
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3215282826657210733, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: extravalue
-      value: -20
+      propertyPath: isCollider3D
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3367606911884051070, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: velocidadMaxima
-      value: 10
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4048569934435387579, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: velocidadMaxima
-      value: 10
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4473244463818027778, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: speed
-      value: 12
+    - target: {fileID: 4709699181657853026, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447732119301351527, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: extravalue
-      value: -20
+      propertyPath: isCollider3D
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657636001218227084, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 7900756253197990282, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
       propertyPath: m_LocalPosition.x
@@ -945,8 +957,8 @@ PrefabInstance:
       value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 8662587767831845447, guid: 210c4f0ec356ce391b47af9f5a529804, type: 3}
-      propertyPath: extravalue
-      value: -20
+      propertyPath: isCollider3D
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1324,8 +1336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 128, y: -44}
-  m_SizeDelta: {x: 279.5807, y: 59.1417}
+  m_AnchoredPosition: {x: 215.73639, y: -77.870605}
+  m_SizeDelta: {x: 455.0535, y: 126.883}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1689954217
 MonoBehaviour:
@@ -1374,8 +1386,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1726,7 +1738,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

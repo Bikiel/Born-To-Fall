@@ -1,6 +1,4 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Audio;
 
 
 public class PlayerFx : MonoBehaviour
@@ -8,38 +6,38 @@ public class PlayerFx : MonoBehaviour
 
     public Rigidbody2D playerRb;
 
-    
-  
- 
+
+
+
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
-    public AudioClip yellSound;
-    public AudioClip crashSound;
-    private AudioSource playerAudio;
+    //public AudioClip yellSound;
+    //public AudioClip crashSound;
+    //private AudioSource playerAudio;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
 
         playerRb = GetComponent<Rigidbody2D>();
-       
-     
-        playerAudio = GetComponent<AudioSource>();
+
+
+        //playerAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             //playerRb.rotation = Quaternion.Euler(0, 0, 0);
             playerRb.MoveRotation(0);
 
-            if (!playerAudio.isPlaying)
+            /*if (!playerAudio.isPlaying)
             {
-                playerAudio.PlayOneShot(crashSound, 1.0f);
-            }
+                //playerAudio.PlayOneShot(crashSound, 1.0f);
+            }*/
         }
     }
 
@@ -49,25 +47,24 @@ public class PlayerFx : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground"))
         {
-          
+
             dirtParticle.Play();
-            playerAudio.PlayOneShot(yellSound, 1.0f);
+            //playerAudio.PlayOneShot(yellSound, 1.0f);
 
 
 
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-            
-            Debug.Log("Auch");
-            playerRb.constraints= ~RigidbodyConstraints2D.FreezePositionY;
-            if (!playerAudio.isPlaying)
+
+            playerRb.constraints = ~RigidbodyConstraints2D.FreezePositionY;
+            /*if (!playerAudio.isPlaying)
             {
-                playerAudio.PlayOneShot(crashSound, 1.0f);
-            }
+                //playerAudio.PlayOneShot(crashSound, 1.0f);
+            }*/
             explosionParticle.Play();
             //dirtParticle.Stop();
-            
+
         }
 
 
