@@ -1975,6 +1975,7 @@ MonoBehaviour:
     m_Flags: 0
   moveSpeed: 5
   acceleration: 25
+  horizontalLimit: 8.4
 --- !u!50 &439535147
 Rigidbody2D:
   serializedVersion: 5
@@ -2557,6 +2558,7 @@ GameObject:
   - component: {fileID: 710001294}
   - component: {fileID: 710001295}
   - component: {fileID: 710001296}
+  - component: {fileID: 710001297}
   m_Layer: 6
   m_Name: Capsule (2)
   m_TagString: Untagged
@@ -2853,6 +2855,70 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &710001297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710001284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7175a864435ecf2984c60ee337500b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c6f6f553-cc5c-4780-af06-f45e626c6a5a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 2D Vector
+      m_Id: d562c92a-3ad6-44ae-866b-bdccb4778d4c
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: f93c67a9-da98-4bfb-a5f9-34afc9165605
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: d1bb4789-5637-432f-887b-d5d76c657851
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: c3a6f8f4-907c-403d-8cf1-459590abe018
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 0324a95d-9132-47a9-b673-f4b7c6973c07
+      m_Path: 
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    m_Flags: 0
+  moveSpeed: 5
+  acceleration: 25
+  horizontalLimit: 8.4
 --- !u!1 &736225420
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,6 +3483,7 @@ MonoBehaviour:
     m_Flags: 0
   moveSpeed: 5
   acceleration: 25
+  horizontalLimit: 8.4
 --- !u!50 &810735054
 Rigidbody2D:
   serializedVersion: 5
