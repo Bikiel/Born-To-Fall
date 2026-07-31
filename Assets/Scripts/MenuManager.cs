@@ -5,10 +5,13 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject menuPanel;
     [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject tutorialPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        creditsPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +28,14 @@ public class MenuManager : MonoBehaviour
     public void ShowMenu()
     {
         creditsPanel.SetActive(false);
+        tutorialPanel.SetActive(false);
         menuPanel.SetActive(true);
+    }
+
+    public void ShowTutorial()
+    {
+        menuPanel.SetActive(false);
+        tutorialPanel.SetActive(true);
     }
 
     public void ShowPlayScene()
