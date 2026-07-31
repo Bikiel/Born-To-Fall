@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float acceleration = 25f;
+    [SerializeField] private float horizontalLimit = 8.4f;
 
     private Rigidbody2D playerRigidbody;
     private bool isGameOver;
@@ -34,12 +35,22 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        Vector2 position = playerRigidbody.position;
+        position.x = Mathf.Clamp(position.x, -horizontalLimit, horizontalLimit);
+        playerRigidbody.position = position;
+
         float horizontalInput = moveAction.ReadValue<Vector2>().x;
         float targetVelocityX = horizontalInput * moveSpeed;
         float velocityX = Mathf.MoveTowards(
             playerRigidbody.linearVelocity.x,
             targetVelocityX,
             acceleration * Time.fixedDeltaTime);
+
+        float nextPositionX = playerRigidbody.position.x + velocityX * Time.fixedDeltaTime;
+        if (nextPositionX > horizontalLimit || nextPositionX < -horizontalLimit)
+        {
+            velocityX = 0f;
+        }
 
         playerRigidbody.linearVelocity = new Vector2(velocityX, playerRigidbody.linearVelocity.y);
     }
@@ -48,22 +59,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 
-    public void GameOver()
+    public void DisableMovement()
     {
-        if (isGameOver)
-        {
-            return;
-        }
-
         Debug.Log("Game Over!!");
-
-        isGameOver = true;
         moveAction.Disable();
         playerRigidbody.linearVelocity = Vector2.zero;
-        Time.timeScale = 0f;
     }
 }
